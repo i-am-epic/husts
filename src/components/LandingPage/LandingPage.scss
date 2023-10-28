@@ -1,0 +1,38 @@
+/* Welcome.scss */
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    .title {
+        font-size: 2rem;
+    }
+    .description {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .button-container {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .mute-button,
+        .next-button {
+            padding: 10px 20px;
+            background-color: #0074e4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .mute-button {
+            background-color: #ff0000;
+            /* Change the color for the mute button */
+        }
+    }
+}

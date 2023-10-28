@@ -1,0 +1,119 @@
+// Home.scss
+
+// Dark Theme
+$background-color: #222;
+$text-color: #fff;
+$accent-color: #0074e4;
+// Define the primary and secondary colors for the gradient
+$primary-color: #222; // Dark color
+$secondary-color: #444; // Slightly lighter color
+
+.home-container {
+    background: linear-gradient(to bottom, $primary-color, $secondary-color);
+    color: $text-color;
+    border-color: #fff;
+    border-width: 1rem;
+    background-size: cover;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; // Center the content horizontally
+    align-items: center; // Center the content vertically
+
+    // Header styles
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .contact-info {
+            margin: 0 20px;
+        }
+
+        .social-links {
+            a {
+                text-decoration: none;
+                color: $accent-color;
+                margin-right: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &:hover {
+                    color: lighten($accent-color, 10%);
+                }
+            }
+        }
+    }
+
+    // Main section styles
+    .main {
+        .computer {
+            width: 100%;
+            max-width: 800px;
+            //justify-content: center;
+            //align-items: center;
+        }
+
+        .project-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0px;
+
+            .next-button,
+            .previous-button {
+                padding: 10px 20px;
+                background-color: $accent-color;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: darken($accent-color, 10%);
+                }
+            }
+        }
+    }
+
+    // Right sidebar styles
+    .right-sidebar {
+        .interactive-button {
+            padding: 10px 20px;
+            background-color: $accent-color;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: darken($accent-color, 10%);
+            }
+        }
+    }
+
+    .center-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center; // Center the content both horizontally and vertically
+        width: 100%;
+    }
+
+    // Responsive design
+    @media screen and (max-width: 768px) {
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; // Center the content both horizontally and vertically
+            width: 100%;
+        }
+    }
+}

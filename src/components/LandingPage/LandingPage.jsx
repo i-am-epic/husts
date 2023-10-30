@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Sound from 'react-sound';
 import './LandingPage.scss';
 import Home from '../Home/Home';
 import { Link, useNavigate } from "react-router-dom";
@@ -32,11 +31,11 @@ const LandingPage = () => {
         <button className="next-button" onClick={() => { handleNextClick(); playSound(); }}>
           Portfolio
         </button>
-        <Sound
+        {/* <Sound
           url="/button.mp3"
           playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
           onFinishedPlaying={() => setIsPlaying(false)}
-        />
+        /> */}
       </div>
     </div>
   );

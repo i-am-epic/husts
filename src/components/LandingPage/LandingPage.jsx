@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import './LandingPage.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Howl, Howler } from 'howler';
+import Lottie from 'lottie-react';
+import helloLottie from './../../assets/helloLottie';
+import bgLottie from './../../assets/bgLottie';
 
 const LandingPage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const navigate = useNavigate();
-
+  const [isClicked, setIsClicked] = useState(false);
   const toggleMute = () => {
     if (isMuted) {
       voiceButtonClicked()
@@ -15,7 +18,10 @@ const LandingPage = () => {
   };
 
   const handleNextClick = () => {
-    navigate('/home');
+    setIsClicked(true); // Set isClicked to true
+    setTimeout(() => {
+      navigate('/home'); // Navigate to /home after a delay
+    }, 7000); // Adjust the delay time as needed (7 seconds in this example)
   };
 
   const voiceButtonClicked = (e) => {
@@ -45,19 +51,29 @@ const LandingPage = () => {
   };
 
   return (
+
     <div className="welcome-container">
-      <h1 className="title">Nikhil A V</h1>
-      <h4>Software Engineer and developer</h4>
-      <p className="description">Simplistic Interactive website</p>
-      <div className="button-container">
-        <button className="mute-button" onClick={toggleMute}>
-          {isMuted ? 'Unmute' : 'Mute'}
-        </button>
-        <button className="next-button" onClick={() => handleNextClick()}>
-          Portfolio
-        </button>
-        <button onClick={voiceButtonClicked}>Play</button>
-      </div>
+      {!isClicked && (
+        <div>
+          {/* Other content here that should be hidden when the animation is visible */}
+          <h1 className="title">Nikhil A V</h1>
+          <h4>Software Engineer and developer</h4>
+          <p className="description">Simplistic Portfolio website</p>
+          <div className="button-container">
+            <button className="mute-button" onClick={toggleMute}>
+              {isMuted ? 'Unmute' : 'Mute'}
+            </button>
+            <button className="next-button" onClick={() => handleNextClick()}>
+
+              Portfolio
+            </button>
+            {/* <button onClick={voiceButtonClicked}>Play</button> */}
+          </div>
+        </div>
+      )}
+
+      {isClicked && <Lottie animationData={helloLottie} />}
+      {!isClicked && <Lottie className="bg-lottie" animationData={bgLottie} />}
     </div>
   );
 };

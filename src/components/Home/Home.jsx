@@ -7,7 +7,7 @@ const Home = () => {
     const aboutMeSegments = [
         { title: "Introduction", content: "Nikhil A V" },
         { title: "Github", content: "github.com/i-am-epic" },
-        { title: "Education", content: "BE - CSE" },
+        { title: "Education", content: "<a>click</a>" },
         { title: "Email", content: "niknikhilav@gmail.com" },
         { title: "Skills Summary", content: "Languages: Python, Java, Dart, C/C++, JavaScript, SQL, Bash" },
     ];

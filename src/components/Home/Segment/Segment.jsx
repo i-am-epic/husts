@@ -20,7 +20,7 @@ const Segment = ({ title, content }) => {
             <div className='segment-container'>
                 <h3 className="segment-title">{title}</h3>
                 <div className={`segment-content ${isClicked ? 'visible' : ''}`}>
-                    {content}
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
             </div>
         </div>

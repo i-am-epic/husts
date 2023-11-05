@@ -14,7 +14,7 @@ $secondary-color: #444; // Slightly lighter color
     border-color: #fff;
     border-width: 1rem;
     background-size: cover;
-    height: 100vh;
+    //height: 100%;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -106,7 +106,7 @@ $secondary-color: #444; // Slightly lighter color
         flex-direction: row;
         align-items: center; // Center the content both horizontally and vertically
         width: 90vw;
-        height: 0vh;
+        height: 100vh;
     }
 
     // Responsive design
@@ -116,6 +116,7 @@ $secondary-color: #444; // Slightly lighter color
             flex-direction: column;
             align-items: center; // Center the content both horizontally and vertically
             width: 90vw;
+            height: auto;
         }
     }
 }

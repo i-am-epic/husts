@@ -4,7 +4,7 @@
     border: 1px solid #666;
     border-radius: 5px;
     //padding: 1px;
-    margin: 10px;
+    //margin: 10px;
     width: 100%;
     text-align: center;
     cursor: pointer;
@@ -12,9 +12,16 @@
     position: relative;
     height: auto;
     //padding-bottom: 100px; // Adjust the padding for the segment
-  
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+
     &:hover {
       transform: scale(1.05);
+    }
+    .segments{
+        align-items: center;
+        justify-content: center; /* Center horizontally */
+
     }
   
     .segment-container.visible {

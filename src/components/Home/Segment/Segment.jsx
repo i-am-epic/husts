@@ -15,14 +15,17 @@ const Segment = ({ title, content }) => {
 
     return (
         <div className={`segment ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-            {isClicked && <Lottie animationData={lockLottie} />}
+            <div className='segments'>
+                {isClicked && <Lottie animationData={lockLottie} />}
 
-            <div className='segment-container'>
-                <h3 className="segment-title">{title}</h3>
-                <div className={`segment-content ${isClicked ? 'visible' : ''}`}>
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                <div className='segment-container'>
+                    <h3 className="segment-title">{title}</h3>
+                    <div className={`segment-content ${isClicked ? 'visible' : ''}`}>
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                    </div>
                 </div>
             </div>
+
         </div>
     );
 };

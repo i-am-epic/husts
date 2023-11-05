@@ -59,8 +59,9 @@ $secondary-color: #444; // Slightly lighter color
         .computer {
             width: 100%;
             max-width: 800px;
-            //justify-content: center;
-            //align-items: center;
+            justify-content: center; // Center the content horizontally
+            align-items: center; // Center the content vertically
+            height: maxContentHeight; // Apply the fixed size
         }
 
         .project-navigation {
@@ -104,7 +105,8 @@ $secondary-color: #444; // Slightly lighter color
         display: flex;
         flex-direction: row;
         align-items: center; // Center the content both horizontally and vertically
-        width: 100%;
+        width: 90vw;
+        height: 0vh;
     }
 
     // Responsive design
@@ -113,7 +115,7 @@ $secondary-color: #444; // Slightly lighter color
             display: flex;
             flex-direction: column;
             align-items: center; // Center the content both horizontally and vertically
-            width: 100%;
+            width: 90vw;
         }
     }
 }

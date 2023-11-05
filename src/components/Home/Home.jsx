@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.scss';
 import Card from './Cards/Cards';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
     const aboutMeSegments = [
@@ -13,9 +14,9 @@ const Home = () => {
 
     const worksSegments = [
         { title: "Experience", content: "ABB GISPL. Software Engineer Aug 2023 - Present" },
-        
+
         { title: "DevOps Intern", content: "ABB India Mar 2023 - Aug 2023" },
-        
+
     ];
 
     const moreSegments = [
@@ -25,6 +26,17 @@ const Home = () => {
         { title: "Sudoku Solver", content: "Created a simple app which scans the unsolved sudoku image and displays the solved Sudoku. Tech: Python, Flutter, Dart, CSS, TensorFlow" },
         // Add more segments based on your resume
     ];
+
+
+    // State to keep track of the maximum content height
+    const [maxContentHeight, setMaxContentHeight] = useState(0);
+
+    useEffect(() => {
+        // Calculate the maximum content height
+        const segments = [...aboutMeSegments, ...worksSegments, ...moreSegments];
+        const maxSegmentHeight = Math.max(...segments.map(segment => segment.content.length));
+        setMaxContentHeight(maxSegmentHeight);
+    }, [aboutMeSegments, worksSegments, moreSegments]);
 
     return (
         <div className="home-container">

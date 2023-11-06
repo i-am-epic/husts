@@ -2,7 +2,8 @@ import React from 'react';
 import './Home.scss';
 import Card from './Cards/Cards';
 import { useState, useEffect } from 'react';
-import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButtons } from './renderContentFunctions/renderContentFunctions';
+import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton } from './renderContentFunctions/renderContentFunctions';
+import ProjectProvider from '../Home/renderContentFunctions/ProjectsContainer.jsx';
 
 const Home = () => {
 
@@ -15,10 +16,7 @@ const Home = () => {
             title: "",
             content: renderSocialButtons,
         },
-        {
-            title: "Education",
-            content: renderEducationContent,
-        },
+        
         {
             title: "Email",
             content: renderEmailContent,
@@ -39,6 +37,10 @@ const Home = () => {
             title: "DevOps Intern",
             content: renderDevOpsInternContent,
         },
+        {
+            title: "Education",
+            content: renderEducationContent,
+        },
         // Add more segments as needed...
     ];
     const moreSegments = [
@@ -49,7 +51,7 @@ const Home = () => {
         },
         {
             title: "",
-            content: PreviousNextButtons,
+            content: PreviousNextButton,
         }
     ];
 
@@ -65,13 +67,15 @@ const Home = () => {
     }, [aboutMeSegments, worksSegments, moreSegments]);
 
     return (
+        <ProjectProvider>
+
         <div className="main-container">
             <div className="home-container">
                 <main className="main">
                     <div className="center-content">
                         <Card title="About Me" segments={aboutMeSegments} />
-                        <Card title="Works" segments={worksSegments} />
-                        <Card title="More" segments={moreSegments} />
+                        <Card title="Works" segments={moreSegments} />
+                        <Card title="Journey" segments={worksSegments} />
                     </div>
                 </main>
                 <aside className="right-sidebar">
@@ -79,6 +83,8 @@ const Home = () => {
                 </aside>
             </div>
         </div>
+        </ProjectProvider>
+
     );
 };
 

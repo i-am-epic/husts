@@ -2,29 +2,55 @@ import React from 'react';
 import './Home.scss';
 import Card from './Cards/Cards';
 import { useState, useEffect } from 'react';
+import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButtons } from './renderContentFunctions/renderContentFunctions';
 
 const Home = () => {
+
     const aboutMeSegments = [
-        { title: "Introduction", content: "Nikhil A V" },
-        { title: "Github", content: "github.com/i-am-epic" },
-        { title: "Education", content: "<a>click</a>" },
-        { title: "Email", content: "niknikhilav@gmail.com" },
-        { title: "Skills Summary", content: "Languages: Python, Java, Dart, C/C++, JavaScript, SQL, Bash" },
+        {
+            title: "",
+            content: renderProfileContent,
+        },
+        {
+            title: "",
+            content: renderSocialButtons,
+        },
+        {
+            title: "Education",
+            content: renderEducationContent,
+        },
+        {
+            title: "Email",
+            content: renderEmailContent,
+        },
+        {
+            title: "Skills Summary",
+            content: renderSkillsSummaryContent,
+        },
+        // Other segments...
     ];
 
     const worksSegments = [
-        { title: "Experience", content: "ABB GISPL. Software Engineer Aug 2023 - Present" },
-
-        { title: "DevOps Intern", content: "ABB India Mar 2023 - Aug 2023" },
-
+        {
+            title: "Experience",
+            content: renderExperienceContent,
+        },
+        {
+            title: "DevOps Intern",
+            content: renderDevOpsInternContent,
+        },
+        // Add more segments as needed...
     ];
-
     const moreSegments = [
-        { title: "Projects", content: "PinDrop - Value a land based on the dropped pin location (ML, Web Development, Data Mining): (Work in progress) Research-oriented, application to get the estimated price of land based on the location pinned on the map. Tech: Python, React, Google maps API, Selenium, TensorFlow" },
-        { title: "Twitter Clone", content: "Creating a social media from scratch similar to Twitter and Reddit. Tech: React, FastAPI, JavaScript, Python" },
-        { title: "Discord BOT", content: "Build and deployed a friendly bot which interacts with the user to perform the predefined task when triggered. Tech: Python, JavaScript, Discord-API" },
-        { title: "Sudoku Solver", content: "Created a simple app which scans the unsolved sudoku image and displays the solved Sudoku. Tech: Python, Flutter, Dart, CSS, TensorFlow" },
-        // Add more segments based on your resume
+
+        {
+            title: "",
+            content: RenderProjects,
+        },
+        {
+            title: "",
+            content: PreviousNextButtons,
+        }
     ];
 
 
@@ -39,7 +65,7 @@ const Home = () => {
     }, [aboutMeSegments, worksSegments, moreSegments]);
 
     return (
-        <div className="home-container">
+        <div className="main-container">
             <div className="home-container">
                 <main className="main">
                     <div className="center-content">

@@ -8,18 +8,29 @@ $accent-color: #0074e4;
 $primary-color: #222; // Dark color
 $secondary-color: #444; // Slightly lighter color
 
+
+.main-container {
+    background: linear-gradient(to bottom, $primary-color, $secondary-color);
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide any content overflow */
+    min-height: 100vh; /* Set a minimum height to fill the viewport */
+}
 .home-container {
     background: linear-gradient(to bottom, $primary-color, $secondary-color);
     color: $text-color;
     border-color: #fff;
     border-width: 1rem;
     background-size: cover;
-    //height: 100%;
+    height: 100%; /* Set the height to 100% to fill the parent container */
+    overflow: hidden; /* Hide any content overflow */
+    min-height: 100vh;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; // Center the content horizontally
     align-items: center; // Center the content vertically
+    position: relative; /* Add this line to handle absolute positioning inside */
 
     // Header styles
     .header {
@@ -106,7 +117,7 @@ $secondary-color: #444; // Slightly lighter color
         flex-direction: row;
         align-items: center; // Center the content both horizontally and vertically
         width: 90vw;
-        height: 100vh;
+        height: auto;
     }
 
     // Responsive design

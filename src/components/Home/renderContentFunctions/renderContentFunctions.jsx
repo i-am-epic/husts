@@ -61,7 +61,7 @@ export const RenderProjects = () => {
         <div className="project-content">
             <img
                 //src={require(project.image)}
-                src={require('../../../assets/images.jpeg')}
+                src={require('../../../assets/download.jpeg')}
 
                 alt={project.title}
                 onClick={togglePopup}
@@ -175,60 +175,71 @@ export const renderSkillsSummaryContent = () => {
 
 export const renderEarlylife = () => (
     <div className="timeline-section">
-      <div className="timeline-arrow">
-        <span>&#9650;</span> {/* Upward arrow */}
-      </div>
-      <div className="timeline-content">
-        <div className="timeline-item">
-          <p>Up to 12th grade - SCTS</p>
-        </div>
-        <div className="timeline-item">
-          <p>Up to 10th grade - SSRS</p>
-        </div>
-        <div className="timeline-item">
-          <p>Up to 8th grade - SJR School</p>
-        </div>
-        <div className="timeline-item">
-          <p>Birthplace: Your Birthplace</p>
-        </div>
-        <div className="timeline-item">
-          <p>August 26, 2001</p>
-        </div>
-      </div>
-    </div>
-  );
-  
-  export const renderEducationContent = () => (
-    <div className="timeline-section">
-      <div className="timeline-arrow">
-        <span>&#9650;</span> {/* Upward arrow */}
-      </div>
-      <div className="timeline-content">
-        <div className="timeline-item">
-        <p>BE in CSE</p>
 
-          {/* Add your education details in reverse order */}
+        <div className="timeline-content">
+            <div className="timeline-item">
+                <p>Up to 12th grade - SCTS</p>
+            </div>
+            <div className="timeline-arrow">
+                <span>&#9650;</span> {/* Upward arrow */}
+            </div>
+            <div className="timeline-item">
+                <p>Up to 10th grade - SSRS</p>
+            </div>
+            <div className="timeline-arrow">
+                <span>&#9650;</span> {/* Upward arrow */}
+            </div>
+            <div className="timeline-item">
+                <p>Up to 8th grade - SJR School</p>
+            </div>
+            <div className="timeline-arrow">
+                <span>&#9650;</span> {/* Upward arrow */}
+            </div>
+            <div className="timeline-item">
+                <p>August 26, 2001</p>
+            </div>
         </div>
-      </div>
     </div>
-  );
-  
-  export const renderExperienceContent = () => (
+);
+
+export const renderEducationContent = () => (
     <div className="timeline-section">
-      <div className="timeline-arrow">
-        <span>&#9650;</span> {/* Upward arrow */}
-      </div>
-      <div className="timeline-content">
-        <div className="timeline-item">
-          <p>Software Development Engineer at ABB</p>
+
+        <div className="timeline-content">
+            <div className="timeline-item">
+                <p>BE in CSE - DSATM</p>
+
+                {/* Add your education details in reverse order */}
+            </div>
         </div>
-        <div className="timeline-item">
-          <p>DevOps Intern at ABB</p>
-        </div>
-        <div className="timeline-item">
-          <p>Marketing Intern at Verzo</p>
-        </div>
-      </div>
     </div>
-  );
-  
+);
+
+export const renderExperienceContent = () => (
+    <div className="timeline-section">
+
+        <div className="timeline-content">
+            <div className="timeline-item">
+                <p>Software Development Engineer at ABB</p>
+            </div>
+            <div className="timeline-arrow">
+                <span>&#9650;</span> {/* Upward arrow */}
+            </div>
+            <div className="timeline-item">
+                <p>DevOps Intern at ABB</p>
+            </div>
+            <div className="timeline-arrow">
+                <span>&#9650;</span> {/* Upward arrow */}
+            </div>
+            <div className="timeline-item">
+                <p>Brand Designer for Dk54</p>
+            </div>
+            <div className="timeline-arrow">
+                <span>&#9650;</span> {/* Upward arrow */}
+            </div>
+            <div className="timeline-item">
+                <p>Marketing Intern at BoltIOT</p>
+            </div>
+        </div>
+    </div>
+);

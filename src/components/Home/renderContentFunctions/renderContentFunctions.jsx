@@ -9,18 +9,75 @@ export const RenderProjects = () => {
     const { currentProjectIndex } = useContext(ProjectContext);
 
     const projectsData = [
-        "PinDrop - Value a land based on the dropped pin location (ML, Web Development, Data Mining): (Work in progress) Research-oriented, application to get the estimated price of land based on the location pinned on the map. \nTech: Python, React, Google maps API, Selenium, TensorFlow",
-        "Creating a social media from scratch similar to Twitter and Reddit. \nTech: React, FastAPI, JavaScript, Python",
-        "Build and deployed a friendly bot which interacts with the user to perform the predefined task when triggered. \nTech: Python, JavaScript, Discord-API",
-        "Created a simple app which scans the unsolved sudoku image and displays the solved Sudoku. \nTech: Python, Flutter, Dart, CSS, TensorFlow",
-        "Created Interactive portfolio website using React (PS the one u are in right now, if you liked it hit me up for :))"
-        // Add more projects as needed
+        {
+            title: "PinDrop",
+            description: "Value a land based on the dropped pin location (ML, Web Development, Data Mining): (Work in progress) Research-oriented, application to get the estimated price of land based on the location pinned on the map.",
+            techStack: "Tech: Python, React, Google maps API, Selenium, TensorFlow",
+            image: '../../../assets/download.jpeg',
+            link: "project_link_for_pin_drop",
+            sourceCode: "source_code_link_for_pin_drop",
+        },
+        {
+            title: "Twitter Clone",
+            description: "Creating a social media from scratch similar to Twitter and Reddit.",
+            techStack: "Tech: React, FastAPI, JavaScript, Python",
+            image: '../../../assets/download.jpeg',
+            link: "project_link_for_twitter_clone",
+            sourceCode: "source_code_link_for_twitter_clone",
+        },
+        {
+            title: "Discord BOT",
+            description: "Build and deployed a friendly bot which interacts with the user to perform the predefined task when triggered.",
+            techStack: "Tech: Python, JavaScript, Discord-API",
+            image: '../../../assets/download.jpeg',
+            link: "project_link_for_discord_bot",
+            sourceCode: "source_code_link_for_discord_bot",
+        },
+        {
+            title: "Sudoku Solver",
+            description: "Created a simple app which scans the unsolved sudoku image and displays the solved Sudoku.",
+            techStack: "Tech: Python, Flutter, Dart, CSS, TensorFlow",
+            image: '../../../assets/download.jpeg',
+            link: "project_link_for_sudoku_solver",
+            sourceCode: "source_code_link_for_sudoku_solver",
+        },
+        {
+            title: "Interactive Portfolio",
+            description: "Created Interactive portfolio website using React (PS the one you are in right now, if you liked it hit me up for :))",
+            techStack: "Tech: React, JavaScript, HTML, CSS",
+            image: '../../../assets/download.jpeg',
+            link: "project_link_for_portfolio",
+            sourceCode: "source_code_link_for_portfolio",
+        },
     ];
+    const project = projectsData[currentProjectIndex];
+    const [isPopupVisible, setPopupVisible] = useState(false);
 
+    const togglePopup = () => {
+        setPopupVisible(!isPopupVisible);
+    };
 
     return (
         <div className="project-content">
-            <p>{projectsData[currentProjectIndex]}</p>
+            <img
+                //src={require(project.image)}
+                src={require('../../../assets/images.jpeg')}
+
+                alt={project.title}
+                onClick={togglePopup}
+            />
+            {isPopupVisible && (
+                <div className="project-popup">
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <p>{project.techStack}</p>
+                    <p>
+                        <a href={project.link} target="_blank" rel="noopener noreferrer">Link</a>
+                        &nbsp;|&nbsp;
+                        <a href={project.sourceCode} target="_blank" rel="noopener noreferrer">Source Code</a>
+                    </p>
+                </div>
+            )}
         </div>
     );
 };
@@ -63,9 +120,6 @@ export const renderSocialButtons = () => {
     );
 };
 
-export const renderEducationContent = () => (
-    "B.E in CSE"
-);
 
 export const renderEmailContent = () => {
     const email = "niknikhilav@gmail.com";
@@ -119,10 +173,62 @@ export const renderSkillsSummaryContent = () => {
     );
 };
 
-export const renderExperienceContent = () => (
-    "ABB GISPL. Software Engineer Aug 2023 - Present"
-);
+export const renderEarlylife = () => (
+    <div className="timeline-section">
+      <div className="timeline-arrow">
+        <span>&#9650;</span> {/* Upward arrow */}
+      </div>
+      <div className="timeline-content">
+        <div className="timeline-item">
+          <p>Up to 12th grade - SCTS</p>
+        </div>
+        <div className="timeline-item">
+          <p>Up to 10th grade - SSRS</p>
+        </div>
+        <div className="timeline-item">
+          <p>Up to 8th grade - SJR School</p>
+        </div>
+        <div className="timeline-item">
+          <p>Birthplace: Your Birthplace</p>
+        </div>
+        <div className="timeline-item">
+          <p>August 26, 2001</p>
+        </div>
+      </div>
+    </div>
+  );
+  
+  export const renderEducationContent = () => (
+    <div className="timeline-section">
+      <div className="timeline-arrow">
+        <span>&#9650;</span> {/* Upward arrow */}
+      </div>
+      <div className="timeline-content">
+        <div className="timeline-item">
+        <p>BE in CSE</p>
 
-export const renderDevOpsInternContent = () => (
-    "ABB India Mar 2023 - Aug 2023"
-);
+          {/* Add your education details in reverse order */}
+        </div>
+      </div>
+    </div>
+  );
+  
+  export const renderExperienceContent = () => (
+    <div className="timeline-section">
+      <div className="timeline-arrow">
+        <span>&#9650;</span> {/* Upward arrow */}
+      </div>
+      <div className="timeline-content">
+        <div className="timeline-item">
+          <p>Software Development Engineer at ABB</p>
+        </div>
+        <div className="timeline-item">
+          <p>DevOps Intern at ABB</p>
+        </div>
+        <div className="timeline-item">
+          <p>Marketing Intern at Verzo</p>
+        </div>
+      </div>
+    </div>
+  );
+  

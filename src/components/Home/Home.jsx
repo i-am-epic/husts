@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.scss';
 import Card from './Cards/Cards';
 import { useState, useEffect } from 'react';
-import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton } from './renderContentFunctions/renderContentFunctions';
+import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton,renderEarlylife } from './renderContentFunctions/renderContentFunctions';
 import ProjectProvider from '../Home/renderContentFunctions/ProjectsContainer.jsx';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
         },
         
         {
-            title: "Email",
+            title: "",
             content: renderEmailContent,
         },
         {
@@ -30,18 +30,17 @@ const Home = () => {
 
     const worksSegments = [
         {
-            title: "Experience",
+            title: "Work Experience",
             content: renderExperienceContent,
-        },
-        {
-            title: "DevOps Intern",
-            content: renderDevOpsInternContent,
         },
         {
             title: "Education",
             content: renderEducationContent,
         },
-        // Add more segments as needed...
+        {
+            title: "Early life",
+            content: renderEarlylife,
+        },
     ];
     const moreSegments = [
 

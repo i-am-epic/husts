@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <p style={{ color: 'white', alignContent: 'center', justifyContent: 'center', width: '100vw' ,padding:10}}>Site Under Construction, Sorry for inconvenience </p>
+
     <App />
   </React.StrictMode>
 );

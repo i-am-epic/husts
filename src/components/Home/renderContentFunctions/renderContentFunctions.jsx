@@ -3,8 +3,12 @@ import React, { useState, useContext, createContext } from 'react';
 import ProjectContext from './ProjectContext';
 import ProjectProvider from './ProjectsContainer';
 import PreviousNextButtons from './PreviousNextButtons';
-import Profile from './../../../assets/images.jpeg'
+import Profile from './../../../assets/pfpimage.png'
 import { FaPython, FaJava, FaDart, FaCPlusPlus, FaJs, FaDatabase, FaStar, FaStarHalfAlt } from 'react-icons/fa';
+
+
+import ResumeFile from './../../../assets/Nikhil_Resume.pdf'; // Adjust the path to your resume file
+
 export const RenderProjects = () => {
     const { currentProjectIndex } = useContext(ProjectContext);
 
@@ -96,12 +100,81 @@ export const renderProfileContent = () => {
     return (
         <div>
             <img
-                src={require('../../../assets/images.jpeg')}
-                alt='Your Profile'
+                src={require('../../../assets/pfpimage.png')}
+                alt='Nikhils Image'
+                style={{ maxWidth: '300px' }}
             />
         </div>
     );
 };
+
+// renderContentFunctions.jsx
+
+export const renderResumeDownloadButton = () => {
+    const handleDownload = () => {
+        // Create a download link and trigger the download
+        const link = document.createElement('a');
+        link.href = ResumeFile;
+        link.setAttribute('download', 'Nikhil_Resume.pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    return (
+        <button onClick={handleDownload}>
+            Download Resume
+        </button>
+    );
+};
+
+
+export const renderResumeDownloadButton1 = () => {
+    const handleDownload = () => {
+        // Add logic to collect client details (e.g., IP, etc.)
+        const clientDetails = {
+            // Add client details here
+        };
+
+        // Send client details to the server (you would need a server for this)
+        // You can use fetch or any other method to send details to your server
+
+        // For now, let's assume you have a server endpoint for generating the resume file
+        const resumeEndpoint = 'https://your-server.com/generate-resume';
+
+        // Assuming the server generates and returns the resume file
+        fetch(resumeEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(clientDetails),
+        })
+            .then(response => response.blob())
+            .then(blob => {
+                // Create a download link and trigger the download
+                const url = window.URL.createObjectURL(new Blob([blob]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'Nikhil_Resume.pdf');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
+            .catch(error => {
+                console.error('Error downloading resume:', error);
+            });
+    };
+
+    return (
+        <button onClick={handleDownload}>
+            Download Resume
+        </button>
+    );
+};
+
+
+
 const socialButtonStyle = {
     fontSize: "24px",      // Adjust the font size to make the buttons bigger
     padding: "10px",       // Add padding around the buttons
@@ -136,10 +209,14 @@ export const renderEmailContent = () => {
                 <button onClick={handleEmailClick}><FaEnvelope />  {email}</button>
             </div>
             <div className="contact-item">
-                <FaWhatsapp />  {phoneNumber}
+                <button>
+                    <FaWhatsapp />  {phoneNumber}
+                </button>
             </div>
             <div className="contact-item">
-                <FaLocationDot />  {address}
+                <button>
+                    <FaLocationDot />  {address}
+                </button>
             </div>
         </div>
     );

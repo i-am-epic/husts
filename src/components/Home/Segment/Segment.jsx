@@ -4,12 +4,11 @@ import Lottie from 'lottie-react';
 import lockLottie from '../../../assets/startLottie';
 import useSound from 'use-sound';
 import glass from '../../../assets/breaking-glass-84819.mp3';
-import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton } from '../renderContentFunctions/renderContentFunctions';
-import Profile from './../../../assets/images.jpeg'
+import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton,renderResumeDownloadButton } from '../renderContentFunctions/renderContentFunctions';
 
 const Segment = ({ title, content }) => {
     const [isClicked, setIsClicked] = useState(true);
-    const [glassSound] = useSound(glass);
+    const [glassSound] = useSound(glass, { volume: 0.3 }); // Adjust the volume here
 
     const handleClick = () => {
         if (isClicked) {

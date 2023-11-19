@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.scss';
 import Card from './Cards/Cards';
 import { useState, useEffect } from 'react';
-import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton,renderEarlylife } from './renderContentFunctions/renderContentFunctions';
+import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderResumeDownloadButton, RenderProjects, PreviousNextButton, renderEarlylife } from './renderContentFunctions/renderContentFunctions';
 import ProjectProvider from '../Home/renderContentFunctions/ProjectsContainer.jsx';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
             title: "",
             content: renderSocialButtons,
         },
-        
+
         {
             title: "",
             content: renderEmailContent,
@@ -51,7 +51,12 @@ const Home = () => {
         {
             title: "",
             content: PreviousNextButton,
+        },
+        {
+            title: "",
+            content: renderResumeDownloadButton,
         }
+
     ];
 
 
@@ -68,20 +73,20 @@ const Home = () => {
     return (
         <ProjectProvider>
 
-        <div className="main-container">
-            <div className="home-container">
-                <main className="main">
-                    <div className="center-content">
-                        <Card title="About Me" segments={aboutMeSegments} />
-                        <Card title="Works" segments={moreSegments} />
-                        <Card title="Journey" segments={worksSegments} />
-                    </div>
-                </main>
-                <aside className="right-sidebar">
-                    {/* Right sidebar content */}
-                </aside>
+            <div className="main-container">
+                <div className="home-container">
+                    <main className="main">
+                        <div className="center-content">
+                            <Card title="About Me" segments={aboutMeSegments} />
+                            <Card title="Works" segments={moreSegments} />
+                            <Card title="Journey" segments={worksSegments} />
+                        </div>
+                    </main>
+                    <aside className="right-sidebar">
+                        {/* Right sidebar content */}
+                    </aside>
+                </div>
             </div>
-        </div>
         </ProjectProvider>
 
     );

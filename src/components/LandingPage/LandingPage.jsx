@@ -17,12 +17,12 @@ const LandingPage = () => {
   const [retroNotification] = useSound(retro)
   const [volume, setvolume] = React.useState(0.5);
 
-  const [bg,{stop}] = useSound(bgMusic, {
-    volume:0.2
+  const [bg, { stop }] = useSound(bgMusic, {
+    volume: 0.2
     // `interrupt` ensures that if the sound starts again before it's
     // ended, it will truncate it. Otherwise, the sound can overlap.
   });
-  if(isMuted){
+  if (isMuted) {
     bg();
   }
   const toggleMute = () => {
@@ -34,7 +34,7 @@ const LandingPage = () => {
     setIsMuted(!isMuted);
   };
 
-  
+
   const HandleNextClick = () => {
     setIsClicked(true);
     retroNotification();
@@ -71,30 +71,31 @@ const LandingPage = () => {
   };
 
   return (
+    <div>We will be RIGHT BACK :) </div>
 
-    <div className="welcome-container">
-      {!isClicked && (
-        <div>
-          {/* Other content here that should be hidden when the animation is visible */}
-          <h1 className="title">Nikhil A V</h1>
-          <h4>Software Engineer and developer</h4>
-          <p className="description">Simplistic Portfolio website</p>
-          <div className="button-container">
-            <button className="mute-button" onClick={toggleMute}>
-              {isMuted ? 'Mute' : 'Unmute'}
-            </button>
-            <button className="next-button" onClick={() => HandleNextClick()}>
+    // <div className="welcome-container">
+    //   {!isClicked && (
+    //     <div>
+    //       {/* Other content here that should be hidden when the animation is visible */}
+    //       <h1 className="title">Nikhil A V</h1>
+    //       <h4>Software Engineer and developer</h4>
+    //       <p className="description">Simplistic Portfolio website</p>
+    //       <div className="button-container">
+    //         <button className="mute-button" onClick={toggleMute}>
+    //           {isMuted ? 'Mute' : 'Unmute'}
+    //         </button>
+    //         <button className="next-button" onClick={() => HandleNextClick()}>
 
-              Portfolio
-            </button>
-            {/* <button onClick={voiceButtonClicked}>Play</button> */}
-          </div>
-        </div>
-      )}
+    //           Portfolio
+    //         </button>
+    //         {/* <button onClick={voiceButtonClicked}>Play</button> */}
+    //       </div>
+    //     </div>
+    //   )}
 
-      {isClicked && <Lottie animationData={helloLottie} />}
-      {!isClicked && <Lottie className="bg-lottie" animationData={bgLottie} />}
-    </div>
+    //   {isClicked && <Lottie animationData={helloLottie} />}
+    //   {!isClicked && <Lottie className="bg-lottie" animationData={bgLottie} />}
+    // </div>
   );
 };
 

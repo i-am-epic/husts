@@ -5,7 +5,7 @@ import Lottie from 'lottie-react';
 import buttonSound from './../../assets/button.mp3';
 import useSound from 'use-sound';
 import retro from './../../assets/mixkit-retro-game-notification-212.wav';
-import bgMusic from './../../assets/chill-chords-143504.mp3';
+import bgMusic from './../../assets/coldwindbreeze.mp3';
 import './LandingPage.scss';
 import './WindEffect.scss';
 import Snowstorm from './SnowStrom';
@@ -15,7 +15,7 @@ const LandingPage = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [play] = useSound(buttonSound);
   const [retroNotification] = useSound(retro);
-  const [bg, { stop }] = useSound(bgMusic, { volume: 0.2 });
+  const [bg, { stop }] = useSound(bgMusic, { volume: 0.8 });
 
   const toggleMute = () => {
     if (isMuted) {

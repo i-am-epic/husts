@@ -10,13 +10,16 @@ import './LandingPage.scss';
 import './WindEffect.scss';
 import Snowstorm from './SnowStrom';
 const LandingPage = () => {
-  
+
   const [isMuted, setIsMuted] = useState(false);
   const navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
   const [play] = useSound(buttonSound);
   const [retroNotification] = useSound(retro);
-  const [bg, { stop }] = useSound(bgMusic, { volume: 0.8 });
+  const [bg, { stop }] = useSound(bgMusic, { volume: 0.2 });
+  if (isMuted) {
+    bg();
+  }
 
   const toggleMute = () => {
     if (isMuted) {
@@ -29,31 +32,23 @@ const LandingPage = () => {
 
   const HandleNextClick = () => {
     setIsClicked(true);
-    retroNotification();
     voiceButtonClicked(); // Trigger audio immediately
 
-    play();
     setTimeout(() => {
       navigate('/home');
     }, 6);
   };
 
   const voiceButtonClicked = () => {
-    const soundConfig = {
-      src: ['./public/assets/button.mp3'],
-      volume: 1.0,
-      format: ['ogg'],
-      preload: true,
-      onend: () => {
-        console.log('Audio ended');
-      },
-    };
 
-    const sound = new Howl(soundConfig);
-    sound.on('loaderror', (id, error) => {
-      console.error('Error loading audio:', error);
-    });
-    sound.play();
+
+
+
+    console.log('Audio loaded');
+    if (isMuted) {
+      play();
+      console.log('Audio played');
+    }
     Howler.volume(1.0);
   };
 

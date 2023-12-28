@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './WindEffect.scss'; // Import your WindEffect styles
 import snowman from './../../../src/assets/snowman-nobg.png';
+import tree from './../../../src/assets/christmastree.png';
 
 const Snowstorm = () => {
     const [iceHeight, setIceHeight] = useState(0);
@@ -20,14 +21,20 @@ const Snowstorm = () => {
             {/* Snowstorm container */}
             <div className="snow"></div>
             <div className="snowman">
-            <div className="snow"></div>
+                <div className="snow"></div>
+                <div className="snowandtree">
+                    <img
+                        src={snowman}
+                        alt="Snowman"
+                        className="snowman_image"
+                    />
+                    <img
+                        src={tree}
+                        alt="christmas tree"
+                        className="tree_image"
+                    />
+                </div>
 
-                <img
-                    src={snowman}
-                    alt="Snowman"
-                    className="snowman_image"
-                    style={{ height: '15rem', zIndex: 0, margin: 'auto', position: 'relative' ,}}
-                />
             </div>
             {/* Snowman */}
             <div className="snow"></div>

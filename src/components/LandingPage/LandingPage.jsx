@@ -10,6 +10,7 @@ import './LandingPage.scss';
 import './WindEffect.scss';
 import Snowstorm from './SnowStrom';
 const LandingPage = () => {
+  
   const [isMuted, setIsMuted] = useState(false);
   const navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
@@ -29,6 +30,8 @@ const LandingPage = () => {
   const HandleNextClick = () => {
     setIsClicked(true);
     retroNotification();
+    voiceButtonClicked(); // Trigger audio immediately
+
     play();
     setTimeout(() => {
       navigate('/home');

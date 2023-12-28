@@ -159,13 +159,14 @@
   }
 }
 
-/* Snowman */
+// /* Snowman */
 .snowman {
   position: absolute;
-  bottom: 5px;
-  left: 28%;
+  bottom: 1px;
+  left: 40%;
   transform: translateX(-50%);
   z-index: 0;
+  width: 100%;
 }
 
 .head,
@@ -212,4 +213,26 @@
     overflow: hidden;
     position: absolute;
     z-index: 0;
+}
+.tree_image {
+    height: 33rem;
+    left: 70%;
+    bottom: -10%; /* Adjusted to bottom */
+    position: absolute; /* Position changed to absolute */
+}
+
+.snowandtree {
+    height: 100vh;
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; /* Align to the bottom */
+    justify-content: space-between;
+}
+
+.snowman_image {
+    bottom: -4%; /* Adjusted to bottom */
+    position: absolute; /* Position changed to absolute */
+    height: 15rem;
+    left: 10%;
 }

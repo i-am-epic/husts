@@ -5,6 +5,7 @@ import lockLottie from '../../../assets/startLottie';
 import useSound from 'use-sound';
 import glass from '../../../assets/breaking-glass-84819.mp3';
 import { renderProfileContent, renderSocialButtons, renderEducationContent, renderEmailContent, renderSkillsSummaryContent, renderExperienceContent, renderDevOpsInternContent, RenderProjects, PreviousNextButton,renderResumeDownloadButton } from '../renderContentFunctions/renderContentFunctions';
+import ShowStrom from '../../LandingPage/SnowStrom';
 
 const Segment = ({ title, content }) => {
     const [isClicked, setIsClicked] = useState(true);

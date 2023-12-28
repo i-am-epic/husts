@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cards.scss'; // Style your card as needed
 import Segment from '../Segment/Segment';
-
+import ShowStrom from '../../LandingPage/SnowStrom';
 const Card = ({ title, segments }) => {
     return (
         <div className="card">

@@ -1,50 +1,43 @@
-import React, { useEffect } from 'react';
-import './WindEffect.scss';
+import React, { useEffect, useState } from 'react';
+import './WindEffect.scss'; // Import your WindEffect styles
+import snowman from './../../../src/assets/snowman-nobg.png';
+
 const Snowstorm = () => {
-    // useEffect(() => {
-    //     const script = document.createElement('script');
-    //     script.src = 'src/components/LandingPage/snowstorm.js';
-    //     script.async = true;
+    const [iceHeight, setIceHeight] = useState(0);
 
-    //     script.onload = () => {
-    //         // Snowstorm script has loaded, you can initialize it here if needed
-    //         window.snowStorm.start();
-    //     };
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIceHeight((prevHeight) => Math.min(prevHeight + 1, 400)); // Maximum ice height is 400px (adjust as needed)
+        }, 1000);
 
-    //     document.body.appendChild(script);
-
-    //     return () => {
-    //         // Cleanup if needed
-    //         document.body.removeChild(script);
-    //     };
-    // }, []);
-
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
     return (
-        <div>
+        <div className="snow-container">
             {/* Snowstorm container */}
-            <div id="snow-container"></div>
+            <div className="snow"></div>
+            <div className="snowman">
             <div className="snow"></div>
 
-            <div className="snow_wrap">
-                <div className="snow"></div>
-                <div className="snow"></div>
-                <div className="snow"></div>
-                {/* ... Add more .snow elements as needed */}
+                <img
+                    src={snowman}
+                    alt="Snowman"
+                    className="snowman_image"
+                    style={{ height: '15rem', zIndex: 0, margin: 'auto', position: 'relative' ,}}
+                />
             </div>
-
             {/* Snowman */}
-            <div className="snowman">
-                <div className="head"></div>
-                <div className="body"></div>
-                <div className="bottom"></div>
-            </div>
+            <div className="snow"></div>
 
             {/* Accumulated snow at the bottom */}
-            <div className="snow_bottom"></div>
+            <div className="snow_bottom" style={{ height: `${iceHeight}px`, zIndex: 0 }}></div>
+
+
         </div>
     );
 };
-
 
 export default Snowstorm;

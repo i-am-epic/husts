@@ -19,6 +19,7 @@ body {
   color: $text-color;
   font-family: Arial, sans-serif;
   position: relative; /* To position Lottie over the background */
+  z-index: 10;
 
   .title,
   .description {

@@ -1,0 +1,202 @@
+.wind-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      animation: moveWind 5s linear infinite;
+  
+      // Number of curved lines you want
+      $numLines: 5;
+  
+      @for $i from 1 through $numLines {
+        $randomHeight: random(80) + 20; // Random height between 20 and 100 pixels
+        $randomDelay: random(5);        // Random delay for animation
+  
+        &.line-#{$i} {
+          &::before {
+            content: '';
+            position: absolute;
+            top: $randomHeight + px;
+            left: -2px;  // Start off-screen to the left
+            width: 2px;
+            height: 2px; // Adjust as needed
+            background: #fff; // White color
+            animation: sway 2s infinite ease-in-out #{$randomDelay}s;
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes moveWind {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0) rotateZ(0deg);
+    }
+    50% {
+      transform: translateX(10px) rotateZ(10deg);
+    }
+  }
+  
+  .snow_wrap {
+    height: 100vh;
+    width: 100%;
+    //background: url("bg.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    position: relative;
+    overflow: hidden;
+  }
+  .snow,.snow:after,.snow::before {
+    content: '';
+    position: absolute;
+    top: -650px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: radial-gradient(4px 4px at 100px 50px,#fff,transparent),
+                      radial-gradient(6px 6px at 200px 150px, #fff,transparent),
+                      radial-gradient(3px 3px at 300px 250px,#fff,transparent),
+                      radial-gradient(4px 4px at 400px 350px,#fff,transparent),
+                      radial-gradient(6px 6px at 500px 100px,#fff,transparent),
+                      radial-gradient(3px 3px at 50px 200px,#fff,transparent),
+                      radial-gradient(4px 4px at 150px 300px,#fff,transparent),
+                      radial-gradient(6px 6px at 250px 400px,#fff,transparent),
+                      radial-gradient(3px 3px at 350px 500px,#fff,transparent),
+                      radial-gradient(4px 4px at 550px 550px,#fff,transparent);
+    background-size: 650px 650px;
+    animation: SnowAnim 3s linear infinite;
+  }
+  .snow:after {
+    margin-left: -250px;
+    opacity: 0.5;
+    filter: blur(2px);
+    animation-direction: reverse;
+    animation-duration: 6s;
+  }
+  .snow::before {
+    margin-left: -350px;
+    opacity: 0.7;
+    filter: blur(1px);
+    animation-direction: reverse;
+    animation-duration: 9s;
+  }
+  @keyframes SnowAnim {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(650px);
+    }
+  }
+  
+/* ... Your existing code ... */
+
+/* Additional snowflakes for increased quantity and randomized location */
+.snow-extra1,
+.snow-extra2,
+.snow-extra3 {
+  content: '';
+  position: absolute;
+  background-image: radial-gradient(4px 4px at 200px 50px, #fff, transparent),
+                    radial-gradient(6px 6px at 350px 150px, #fff, transparent),
+                    radial-gradient(3px 3px at 500px 250px, #fff, transparent);
+  background-size: 650px 650px;
+  animation: SnowAnimExtra 2s linear infinite, SnowLocationExtra 15s linear infinite;
+}
+
+@keyframes SnowAnimExtra {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(650px);
+  }
+}
+
+@keyframes SnowLocationExtra {
+  0% {
+    top: -150px;
+    left: 50px;
+  }
+  25% {
+    top: -100px;
+    left: 200px;
+  }
+  50% {
+    top: -50px;
+    left: 400px;
+  }
+  75% {
+    top: -200px;
+    left: 550px;
+  }
+  100% {
+    top: -150px;
+    left: 700px;
+  }
+}
+
+/* Snowman */
+.snowman {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.head,
+.body,
+.bottom {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.head {
+  width: 50px;
+  height: 50px;
+  top: -50px;
+}
+
+.body {
+  width: 100px;
+  height: 100px;
+  top: 0;
+}
+
+.bottom {
+  width: 150px;
+  height: 150px;
+  top: 100px;
+}
+
+/* Accumulated snow at the bottom */
+.snow_bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #fff;
+}

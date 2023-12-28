@@ -1,65 +1,68 @@
+/* Global color palette */
+$primary-color: #0074e4;  // Adjust as needed
+$secondary-color: #ff0000; // Adjust as needed
+$background-color: #000000;
+$text-color: #fff;
+
 /* Welcome.scss */
+body {
+  background: $background-color;
+}
 
 .welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba($background-color, 0.45); /* Background color for the Lottie animation */
+  color: $text-color;
+  font-family: Arial, sans-serif;
+  position: relative; /* To position Lottie over the background */
+
+  .title,
+  .description {
+    text-align: center;
+    z-index: 100;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: $primary-color; // Use primary color for the title
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .button-container {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #00000073; /* Background color for the Lottie animation */
-    color: #fff;
-    font-family: Arial, sans-serif;
-    position: relative; /* To position Lottie over the background */
-  
-    .bg-lottie {
-        position: absolute;
-        top: 0;
-        left: 1%;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-        transform: scale(1.4); /* Zoom in by 2x */
-        background-color: #010e13; /* Prevent Lottie from capturing clicks */
+    gap: 10px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 10;
+
+    .mute-button,
+    .next-button {
+      padding: 10px 20px;
+      color: $text-color;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
     }
 
-    .title {
-        font-size: 2rem;
-        text-align: center;
-        z-index: 100;
-
+    .mute-button {
+      background-color: $secondary-color; /* Use secondary color for the mute button */
     }
 
-    .description {
-        font-size: 1rem;
-        text-align: center;
-        z-index: 1000;
-
+    .next-button {
+      background-color: $primary-color;
     }
+  }
 
-    .button-container {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        z-index: 10;
-
-        .mute-button,
-        .next-button {
-            padding: 10px 20px;
-            background-color: #0074e4;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .mute-button {
-            background-color: #ff0000;
-            /* Change the color for the mute button */
-        }
-    }
+  #snow-container {
+    // Styles for the snow container
+  }
 }
